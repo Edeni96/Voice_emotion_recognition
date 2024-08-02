@@ -1,9 +1,9 @@
+
 # Speech Emotion Recognition Using Attention Model
-Voice emotion recognition by machine learning techniques 
 
 ## Overview
 
-This project aims to recognize emotions in speech using an advanced deep learning model that incorporates Convolutional Neural Networks (CNN), Long Short-Term Memory (LSTM) networks, and an Attention mechanism. The model is trained and evaluated using the TESS Toronto emotional speech set data and other datasets combined to improve the robustness and accuracy of emotion detection.
+This project aims to recognize emotions in speech using an advanced deep learning model that incorporates Convolutional Neural Networks (CNN), Long Short-Term Memory (LSTM) networks, and an Attention mechanism. The model is trained and evaluated using the TESS Toronto emotional speech set data.
 
 ## Features
 
@@ -26,14 +26,25 @@ The project relies on the following libraries and frameworks:
 
 ## Dataset
 
-The primary dataset used in this project is the **TESS Toronto emotional speech set**, supplemented with data from the RAVDESS and SAVEE datasets. The combined dataset includes various emotions: happy, sad, angry, surprise, disgust, calm, fearful, and neutral.
+The primary dataset used in this project is the [TESS Toronto emotional speech set](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess). The dataset includes various emotions: happy, sad, angry, surprise, disgust, fearful, and neutral.
+
+## Data Distribution
+
+The base data must be manually distributed in a random manner to the test folder. Specifically, 40 recordings from each folder in the database should be transferred to the test folder. The path to this test folder must be specified in the `Use_Our_Model.py` script. The remaining recordings in the folders will be used for training and verification in the `Emotion_Recognition.py` script.
 
 ## Installation
 
-To run this project, ensure you have Python installed (version 3.6 or higher) and set up a virtual environment. Then, install the required packages using the following command:
+To run this project, ensure you have Python installed (version 3.6 or higher) and set up a virtual environment. Then, install the required packages using the following commands:
 
 ```bash
-pip install -r requirements.txt
+pip install tensorflow
+pip install keras
+pip install scikit-learn
+pip install librosa
+pip install matplotlib
+pip install joblib
+pip install pandas
+pip install numpy
 ```
 
 ## Usage
@@ -83,6 +94,7 @@ This project demonstrates the effectiveness of combining CNN, LSTM, and Attentio
 ## References
 
 - Singh, J.; Saheer, L.B.; Faust, O. (2023). Speech Emotion Recognition Using Attention Model. *International Journal of Environmental Research and Public Health*, 20, 5140. [Link to article](https://doi.org/10.3390/ijerph20065140)
+- [TESS Toronto emotional speech set](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess)
 
 ## License
 
