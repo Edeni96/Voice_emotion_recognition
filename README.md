@@ -6,8 +6,8 @@ This project aims to recognize emotions in speech using an advanced deep learnin
 
 ## Features
 
-- **Attention Mechanism**: Enhances the model's ability to focus on significant parts of the speech signal.
 - **CNN + LSTM Architecture**: Combines the spatial feature extraction capabilities of CNN with the temporal processing power of LSTM.
+- **Attention Mechanism**: Enhances the model's ability to focus on significant parts of the speech signal.
 - **High Accuracy**: Achieves an average test accuracy rate of 90%, outperforming many existing models.
 
 ## Dependencies
