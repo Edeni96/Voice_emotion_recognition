@@ -45,9 +45,10 @@ class AttentionLayer(Layer):
         return tf.reduce_sum(output, axis=1)
 
 # Load and label dataset
+dataset_path = os.path.abspath("TESS_Toronto_emotional_speech_set_data")
 paths = []
 labels = []
-for dirname, _, filenames in os.walk("C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\TESS Toronto emotional speech set data"):
+for dirname, _, filenames in os.walk(dataset_path):
     for filename in filenames:
         paths.append(os.path.join(dirname, filename))
         label = filename.split('_')[-1].split('.')[0].lower()
@@ -126,9 +127,11 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr
 history = model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=300, batch_size=64, callbacks=[early_stopping, reduce_lr])
 
 # Save the model, encoder, and scaler
-model.save("C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Projecton_Model\\Model.keras")
-joblib.dump(enc, "C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Projecton_Model\\Encoder.joblib")
-joblib.dump(scaler, "C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Projecton_Model\\Scaler.joblib")
+model_dir = os.path.abspath("Projecton_Model")
+os.makedirs(model_dir, exist_ok=True)
+model.save(os.path.join(model_dir, "Model.keras"))
+joblib.dump(enc, os.path.join(model_dir, "Encoder.joblib"))
+joblib.dump(scaler, os.path.join(model_dir, "Scaler.joblib"))
 
 # Plot and save training history
 plt.figure(figsize=(12, 6))
