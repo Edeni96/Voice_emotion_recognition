@@ -1,7 +1,5 @@
-# Voice_emotion_recognition
-Voice emotion recognition by machine learning techniques 
-
 # Speech Emotion Recognition Using Attention Model
+Voice emotion recognition by machine learning techniques 
 
 ## Overview
 
