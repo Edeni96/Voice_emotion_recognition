@@ -11,7 +11,6 @@ import librosa.display
 import librosa.feature
 import joblib
 from keras.models import load_model
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 # Suppress warnings and logging
 tf.get_logger().setLevel(logging.ERROR)
@@ -40,9 +39,10 @@ class AttentionLayer(tf.keras.layers.Layer):
         return tf.reduce_sum(output, axis=1)
 
 # Load and label test dataset
+test_data_path = os.path.abspath("Test")
 paths = []
 labels = []
-for dirname, _, filenames in os.walk("C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Test"):
+for dirname, _, filenames in os.walk(test_data_path):
     for filename in filenames:
         paths.append(os.path.join(dirname, filename))
         label = filename.split('_')[-1].split('.')[0].lower()
@@ -68,15 +68,18 @@ def extract_features(filename, max_len=130):
 # Extract features
 X = np.array([extract_features(x) for x in df['speech']])
 X = np.expand_dims(X, -1)
-scaler = joblib.load("C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Projecton_Model\\Scaler.joblib")
+scaler_path = os.path.abspath(os.path.join("Projecton_Model", "Scaler.joblib"))
+scaler = joblib.load(scaler_path)
 X = scaler.transform(X.reshape(-1, X.shape[-1])).reshape(X.shape)
 
 # Encode labels
-enc = joblib.load("C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Projecton_Model\\Encoder.joblib")
+encoder_path = os.path.abspath(os.path.join("Projecton_Model", "Encoder.joblib"))
+enc = joblib.load(encoder_path)
 y = enc.transform(df[['label']]).toarray()
 
 # Load the model
-model = load_model("C:\\Users\\karni\\OneDrive\\Desktop\\electrical_eng\\4_YEAR_B\\Machine_Learning\\final_course_project\\python files\\Projecton_Model\\Model.keras", custom_objects={'AttentionLayer': AttentionLayer})
+model_path = os.path.abspath(os.path.join("Projecton_Model", "Model.keras"))
+model = load_model(model_path, custom_objects={'AttentionLayer': AttentionLayer})
 
 # Print model summary and save it to a text file
 model_summary_text = []
