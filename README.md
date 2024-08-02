@@ -1,4 +1,3 @@
-
 # Speech Emotion Recognition Using Attention Model
 
 ## Overview
@@ -47,6 +46,37 @@ pip install pandas
 pip install numpy
 ```
 
+## Feature Extraction
+
+The feature extraction process uses MFCC (Mel Frequency Cepstral Coefficients), which have been identified as the best-performing features for speech emotion recognition. The MFCCs are extracted from the audio files and padded to ensure uniformity in feature array shapes.
+
+## Model Architecture
+
+### Convolutional Neural Network (CNN)
+
+The model starts with four convolutional blocks, each containing:
+- **Conv2D Layer**: Extracts spatial features from the input data.
+- **BatchNormalization**: Normalizes the activations of the previous layer.
+- **Activation Layer (ReLU)**: Adds non-linearity to the model.
+- **MaxPooling2D Layer**: Reduces the dimensionality of the feature maps.
+- **Dropout Layer**: Prevents overfitting by randomly setting input units to zero.
+
+### Long Short-Term Memory (LSTM) Network
+
+- **TimeDistributed Layer**: Flattens the feature maps to make them suitable for LSTM input.
+- **LSTM Layer**: Captures temporal dependencies in the data with return sequences set to true.
+- **Attention Layer**: Focuses on important parts of the sequence by assigning weights to each time step.
+- **Reshape Layer**: Converts the 2D output of the attention layer to 3D.
+- **LSTM Layer**: Processes the weighted sequence data.
+
+### Dense Layer
+
+- **Dense Layer with Softmax Activation**: Outputs the probability distribution over the emotion classes.
+
+### Model Compilation
+
+The model is compiled with a lower learning rate using the Adam optimizer and categorical cross-entropy loss function.
+
 ## Usage
 
 ### Training the Model
@@ -66,14 +96,6 @@ python Emotion_Recognition.py
 ```bash
 python Use_Our_Model.py
 ```
-
-### Feature Extraction
-
-The feature extraction process uses MFCC (Mel Frequency Cepstral Coefficients), which have been identified as the best-performing features for speech emotion recognition.
-
-### Attention Layer
-
-A custom attention layer is implemented to allow the model to focus on important parts of the speech signal. This layer enhances the model's ability to capture significant features and improve overall performance.
 
 ## Results
 
