@@ -25,7 +25,7 @@ The project relies on the following libraries and frameworks:
 
 ## Dataset
 
-The primary dataset used in this project is the [TESS Toronto emotional speech set](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess). The dataset includes various emotions: happy, sad, angry, surprise, disgust, fearful, and neutral.
+The primary dataset used in this project is the [TESS Toronto emotional speech set](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess).The dataset includes recordings categorized into seven emotional classes: Happy, Fear, Surprised, Sad, Angry, Disgust, and Neutral. Each recording begins with the phrase "say the word..." followed by a different word, making up 400 unique sentences per emotion. The sentences are uniformly recorded by both a male and a female speaker, resulting in 200 recordings per gender for each emotion. Altogether, the dataset includes 2,800 recordings.
 
 ## Data Distribution
 
