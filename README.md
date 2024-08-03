@@ -117,7 +117,3 @@ This project demonstrates the effectiveness of combining CNN, LSTM, and Attentio
 
 - Singh, J.; Saheer, L.B.; Faust, O. (2023). Speech Emotion Recognition Using Attention Model. *International Journal of Environmental Research and Public Health*, 20, 5140. [Link to article](https://doi.org/10.3390/ijerph20065140)
 - [TESS Toronto emotional speech set](https://www.kaggle.com/datasets/ejlok1/toronto-emotional-speech-set-tess)
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
