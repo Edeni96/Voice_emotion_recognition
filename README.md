@@ -29,7 +29,7 @@ The primary dataset used in this project is the [TESS Toronto emotional speech s
 
 ## Data Distribution
 
-The base data must be manually distributed in a random manner to the test folder. Specifically, 40 recordings from each folder in the database should be transferred to the test folder. The path to this test folder must be specified in the `Use_Our_Model.py` script. The remaining recordings in the folders will be used for training and verification in the `Emotion_Recognition.py` script.
+The base data must be manually distributed in a random manner to the test folder. Specifically, 40 recordings from each folder in the database should be transferred to the test folder creating a test set of 560 recordings (20% from the data base). The path to this test folder must be specified in the `Use_Our_Model.py` script. The remaining recordings in the folders will be used for training and verification in the `Emotion_Recognition.py` script.
 
 ## Installation
 
