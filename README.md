@@ -52,6 +52,11 @@ The feature extraction process uses MFCC (Mel Frequency Cepstral Coefficients), 
 
 ## Model Architecture
 
+![layer structure](https://github.com/Edeni96/Voice_emotion_recognition/blob/main/layer%20structure.png)
+
+
+
+
 ### Convolutional Neural Network (CNN)
 
 The model starts with four convolutional blocks, each containing:
